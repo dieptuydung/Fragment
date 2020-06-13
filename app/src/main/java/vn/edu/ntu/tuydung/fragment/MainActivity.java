@@ -13,8 +13,13 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import vn.edu.ntu.tuydung.controller.CartController;
+import vn.edu.ntu.tuydung.controller.CartControllerDB;
+import vn.edu.ntu.tuydung.controller.ICartcontroller;
+
 public class MainActivity extends AppCompatActivity {
     NavController controller;
+    ICartcontroller CartController;
 
 
     @Override
@@ -30,8 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 controller.navigateUp();
             }
         });
-
-
+        CartController = new CartControllerDB(this);
     }
 
     @Override

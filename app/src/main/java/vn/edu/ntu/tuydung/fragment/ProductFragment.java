@@ -23,7 +23,7 @@ import vn.edu.ntu.tuydung.model.Product;
 public class ProductFragment extends Fragment {
     EditText edtName, edtPrice, edtDesc;
     Button btnAdd;
-
+    ICartcontroller iCartcontroller;
     public ProductFragment() {
         // Required empty public constructor
     }
@@ -47,10 +47,10 @@ public class ProductFragment extends Fragment {
         btnAdd. setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ICartcontroller controller = (ICartcontroller) getActivity().getApplication();
+                iCartcontroller = ((MainActivity)getActivity()).CartController;
                 Product  p = new Product(edtName.getText().toString(),
                         edtDesc.getText().toString(), new Integer(edtPrice.getText().toString()));
-                controller.listProduct().add(p);
+                iCartcontroller.addList(p);
 
                 Toast.makeText(getActivity(), "Đã thêm" + edtName.getText() + " vào giỏ", Toast.LENGTH_SHORT).show();
             }

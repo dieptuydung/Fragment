@@ -35,6 +35,7 @@ public class DSMatHangFragment extends Fragment {
     ProductAdapter adapter;
     ICartcontroller iCartcontroller;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -43,7 +44,8 @@ public class DSMatHangFragment extends Fragment {
         fab=view.findViewById(R.id.fab);
 
         rvListMH=view.findViewById(R.id.rvListMH);
-        iCartcontroller = (ICartcontroller) getActivity().getApplication();
+        //iCartcontroller = (ICartcontroller) getActivity().getApplication();
+        iCartcontroller = ((MainActivity)getActivity()).CartController;
         listProduct = iCartcontroller.listProduct();
         adapter = new ProductAdapter(listProduct);
         rvListMH.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -121,7 +123,7 @@ public class DSMatHangFragment extends Fragment {
         @Override
         public void onClick(View v)
         {
-            iCartcontroller = (ICartcontroller) getActivity().getApplication();
+            iCartcontroller = ((MainActivity)getActivity()).CartController;
             if(iCartcontroller.addToShoppingCart(p))
             {
                 Toast.makeText(getActivity(), "Thêm " + p.getName() + " vào giỏ hàng",

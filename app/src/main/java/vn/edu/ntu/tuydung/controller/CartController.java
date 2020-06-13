@@ -6,11 +6,11 @@ import java.util.ArrayList;
 
 import vn.edu.ntu.tuydung.model.Product;
 
-public class Controller extends Application implements ICartcontroller {
+public class CartController extends Application implements ICartcontroller{
     ArrayList<Product> listProduct = new ArrayList<>();
     ArrayList<Product> listShoppingCart=new ArrayList<>();
 
-    public Controller()
+    public CartController()
     {
         listProduct.add(new Product("Xoài","Hòa Lộc", 60000));
         listProduct.add(new Product("Ổi","Da Trơn", 20000));
@@ -30,6 +30,11 @@ public class Controller extends Application implements ICartcontroller {
     @Override
     public ArrayList<Product> listShopping() {
         return listShoppingCart;
+    }
+
+    @Override
+    public void addList(Product p) {
+
     }
 
     @Override

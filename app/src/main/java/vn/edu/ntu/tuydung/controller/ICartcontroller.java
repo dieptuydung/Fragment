@@ -10,6 +10,6 @@ public interface ICartcontroller {
     public ArrayList<Product> listProduct();
 
     public ArrayList<Product> listShopping();
-
+    public void addList(Product p);
     public boolean addToShoppingCart(Product p);
 }
